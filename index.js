@@ -8,7 +8,7 @@ app.get('/', function( req, res ){
     res.render('home.ejs')
 })
 
-app.get('/path/name', function( req, res ){
+app.get('/path/:name', function( req, res ){
     //change to another ejs file
     let name = req.params.name
     console.log(name)
