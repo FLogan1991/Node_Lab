@@ -12,7 +12,7 @@ app.get('/', function( req, res ){
 app.get('/path/:name', function( req, res ){
     //change to another ejs file
     let name = req.params.name;
-    res.render('home.ejs', {name: name});
+    res.render('home.ejs',{name: name});
 })
 
 app.get('/query', function( req, res ){
