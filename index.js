@@ -1,29 +1,29 @@
+const { name } = require('ejs');
 var express = require('express');
 var app = express();
 
 app.use('/static', express.static('public'));
-app.set("view engine", "ejs")
+app.set("view engine", "ejs");
 
 app.get('/', function( req, res ){
-    res.render('home.ejs')
+    res.render('home.ejs');
 })
 
 app.get('/path/:name', function( req, res ){
     //change to another ejs file
-    let name = req.params.name
-    console.log(name)
-    res.render('home.ejs')
+    let name = req.params.name;
+    res.render('home.ejs', {name: name});
 })
 
 app.get('/query', function( req, res ){
     //change to another ejs file
-    let name = req.query.name
-    console.log(name)
-    res.render('home.ejs')
+    let name = req.query.name;
+    let nameObject = {name,name};
+    res.render('home.ejs');
 })
 
 app.listen(3000, () => {
-    console.log('started on port 3000')
+    console.log('started on port 3000');
 })
 
 
