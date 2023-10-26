@@ -1,7 +1,10 @@
 const { name } = require('ejs');
 var express = require('express');
 var app = express();
+var bodyParsser = require("body-parser")
 
+app.use(bodyParsser.urlencoded({extended: false}));
+app.use(bodyParsser.json());
 app.use('/static', express.static('public'));
 app.set("view engine", "ejs");
 
@@ -20,6 +23,10 @@ app.get('/query', function( req, res ){
     let name = req.query.name;
     let nameObject = {"name": name};
     res.render('home.ejs', nameObject);
+})
+
+app.post('/create', (req, res) =>{
+    console.log(req.body)
 })
 
 app.listen(3000, () => {
