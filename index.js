@@ -25,9 +25,13 @@ app.get('/query', function( req, res ){
     res.render('home.ejs', nameObject);
 })
 
+//post and put need a body in the home html file in order to get the information to pass
 app.post('/create', (req, res) =>{
     console.log(req.body)
+    res.redirect("/")
 })
+
+//app.put(route, function);
 
 app.listen(3000, () => {
     console.log('started on port 3000');
