@@ -12,7 +12,7 @@ app.set("view engine", "ejs");
 app.get('/', function( req, res ){
     axios.get('https://xkcd.com/info.0.json').then(function(response){
         console.log(response.data);
-        res.render('home.ejs', {name: null, xkcdData: Response.data});
+        res.render('home.ejs', {name: null, xkcdData: response.data});
     })
 })
 //added null in get above
