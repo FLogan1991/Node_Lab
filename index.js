@@ -1,7 +1,8 @@
 const { name } = require('ejs');
 var express = require('express');
 var app = express();
-var bodyParsser = require("body-parser")
+var bodyParsser = require("body-parser");
+var axios = require('axios').default;
 
 app.use(bodyParsser.urlencoded({extended: false}));
 app.use(bodyParsser.json());
@@ -9,6 +10,9 @@ app.use('/static', express.static('public'));
 app.set("view engine", "ejs");
 
 app.get('/', function( req, res ){
+    axios.get('https://xkcd.com/info.0.json').then(function(response){
+        console.log(response.data);
+    })
     res.render('home.ejs', {"name": null});
 })
 //added null in get above
