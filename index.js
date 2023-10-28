@@ -19,7 +19,7 @@ app.get('/', function( req, res ){
     apiNasaPic
     .then(function(response){
         console.log(response.data)
-        res.render('home.ejs', {name: null, nasaAPIURL: response.data});
+        res.render('home.ejs', {name: null, nasaAPI: response.data});
     })
 })
 //added null in get above
