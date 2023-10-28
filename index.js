@@ -10,7 +10,9 @@ app.use('/static', express.static('public'));
 app.set("view engine", "ejs");
 
 app.get('/', function( req, res ){
-    axios.get('https://xkcd.com/info.0.json').then(function(response){
+    axios.get('https://api.nasa.gov/planetary/apod?').then(function(response){
+        params:{
+            api_key: "DEMO_KEY"}
         console.log(response.data)
         res.render('home.ejs', {name: null, xkcdData: response.data});
     })
