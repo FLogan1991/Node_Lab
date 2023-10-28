@@ -3,6 +3,11 @@ var express = require('express');
 var app = express();
 var bodyParsser = require("body-parser");
 var axios = require('axios').default;
+const apiNasaPic = axios.get('https://api.nasa.gov/planetary/apod?', {
+    params: {
+        api_key: "DEMO_KEY"
+    }
+});
 
 app.use(bodyParsser.urlencoded({extended: false}));
 app.use(bodyParsser.json());
@@ -10,9 +15,8 @@ app.use('/static', express.static('public'));
 app.set("view engine", "ejs");
 
 app.get('/', function( req, res ){
-    axios.get('https://api.nasa.gov/planetary/apod?').then(function(response){
-        params:{
-            api_key: "DEMO_KEY"}
+    apiNasaPic
+    .then(function(response){
         console.log(response.data)
         res.render('home.ejs', {name: null, xkcdData: response.data});
     })
