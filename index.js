@@ -5,6 +5,7 @@ var bodyParsser = require("body-parser");
 var axios = require('axios').default;
 const apiNasaPic = axios.get('https://api.nasa.gov/planetary/apod?', {
     params: {
+        //may need to pass the api key to site host
         api_key: "DEMO_KEY"
     }
 });
@@ -18,7 +19,7 @@ app.get('/', function( req, res ){
     apiNasaPic
     .then(function(response){
         console.log(response.data)
-        res.render('home.ejs', {name: null, xkcdData: response.data});
+        res.render('home.ejs', {name: null, nasaAPIURL: response.data});
     })
 })
 //added null in get above
