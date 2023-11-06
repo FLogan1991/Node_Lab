@@ -3,12 +3,16 @@ var express = require('express');
 var app = express();
 var bodyParsser = require("body-parser");
 var axios = require('axios').default;
+
+
 const apiNasaPic = axios.get('https://api.nasa.gov/planetary/apod?', {
     params: {
         //may need to pass the api key to site host
         api_key: "DEMO_KEY"
     }
 });
+
+
 
 app.use(bodyParsser.urlencoded({extended: false}));
 app.use(bodyParsser.json());
@@ -29,18 +33,18 @@ app.get('/path/:name', function( req, res ){
     res.render('home.ejs',{"name": name});
 })
 
-app.get('/query', function( req, res ){
-    //change to another ejs file
-    let name = req.query.name;
-    let nameObject = {"name": name};
-    res.render('home.ejs', nameObject);
-})
+// app.get('/query', function( req, res ){
+//     //change to another ejs file
+//     let name = req.query.name;
+//     let nameObject = {"name": name};
+//     res.render('home.ejs', nameObject);
+// })
 
-//post and put need a body in the home html file in order to get the information to pass
-app.post('/create', (req, res) =>{
-    console.log(req.body)
-    res.redirect("/")
-})
+// //post and put need a body in the home html file in order to get the information to pass
+// app.post('/create', (req, res) =>{
+//     console.log(req.body)
+//     res.redirect("/")
+// })
 
 //app.put(route, function);
 
