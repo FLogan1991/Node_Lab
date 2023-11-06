@@ -3,6 +3,14 @@ h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 24px;
 }
+.column{
+    float: left;
+}
+.column2 {
+    float: right;
+    font-size: 19px;
+    font-family: sans-serif;
+}
 p {
     color: black;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
