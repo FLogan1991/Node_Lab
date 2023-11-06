@@ -12,8 +12,6 @@ const apiNasaPic = axios.get('https://api.nasa.gov/planetary/apod?', {
     }
 });
 
-
-
 app.use(bodyParsser.urlencoded({extended: false}));
 app.use(bodyParsser.json());
 app.use('/static', express.static('public'));
